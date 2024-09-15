@@ -50,7 +50,7 @@ def generateArray(numberOfElements: int, isSort: bool, sortIncreasing: bool, isR
   array = []
 
   if isRepeatingElement:
-    array = [random.randint(1, 1) for _ in range(0, numberOfElements)]
+    array = [random.randint(1, 3) for _ in range(0, numberOfElements)]
   else:
     array = [random.randint(0, 200) for _ in range(0, numberOfElements)]
   if (isSort):
@@ -62,12 +62,17 @@ def generateArray(numberOfElements: int, isSort: bool, sortIncreasing: bool, isR
   return array
 
 # printArray will print all the elements in the array
-def printArray(array: list[int]):
+def printArray(array: list[int]) -> None:
     for i in range(len(array)):
         print(array[i], end=" ")
     print("\n")
 
 def runningSort():
   sys.setrecursionlimit(1000000)
-  arr = generateArray(numberOfElements=10000, isSort=True,sortIncreasing=False, isRepeatingElement= True)
+
+  arr = generateArray(numberOfElements=10, isSort=False,sortIncreasing=False, isRepeatingElement= True)
+  print("Before sorting")
+  printArray(arr)
   sortedArray = randomizedQuickSort(arr)
+  print("After sorting ")
+  printArray(sortedArray)

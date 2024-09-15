@@ -1,11 +1,11 @@
 class Node:
-  def __init__(self, key: int, value: any):
+  def __init__(self, key: int, value: any) -> None:
     self.key = key
     self.value = value
     self.next = None
 
 class UnorderedMap:
-  def __init__(self):
+  def __init__(self) -> None:
         self.capacity = 30
         self.array = [None] * self.capacity
 
@@ -25,7 +25,7 @@ class UnorderedMap:
   # However, if there is a collision, the key will be added
   # at the beginning of the linked list
   # Time Complexity: O(1)
-  def insert(self, key: int, value: any):
+  def insert(self, key: int, value: any) -> None:
     bucketIndex = self.hashingKey(key)
     newNode = Node(key = key, value = value)
     if self.array[bucketIndex] is None:
@@ -80,7 +80,7 @@ class UnorderedMap:
       previousNode.next = currentNode.next
     return
 
-  def printDistribution(self):
+  def printDistribution(self) -> None:
     for bucketIndex in range(len(self.array)):
       numberOfElements = 0
       bucketHead = self.array[bucketIndex]
@@ -91,7 +91,7 @@ class UnorderedMap:
         print("Number of elements at bucket index", bucketIndex, " is ", numberOfElements)
 
 
-def runningHashCollison():
+def runningHashCollison() -> None:
   hashMap = UnorderedMap()
   hashMap.insert(16, "March")
   hashMap.insert(35, "FeiXiao")
