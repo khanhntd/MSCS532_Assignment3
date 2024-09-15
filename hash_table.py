@@ -20,6 +20,11 @@ class UnorderedMap:
     midDigits = int(midDigitsStr)
     return midDigits % len(self.array)
 
+  # Insert will insert the key to the hash map
+  # after determine the hashing index
+  # However, if there is a collision, the key will be added
+  # at the beginning of the linked list
+  # Time Complexity: O(1)
   def insert(self, key: int, value: any):
     bucketIndex = self.hashingKey(key)
     newNode = Node(key = key, value = value)
@@ -29,6 +34,12 @@ class UnorderedMap:
       newNode.next = self.array[bucketIndex]
       self.array[bucketIndex] = newNode
 
+  # search will search the key from the hash map
+  # after determine the hashing index
+  # The more distributed for the data we have the better. We can use bisect
+  # to improve to logn
+  # https://docs.python.org/3/library/bisect.html
+  # Time Complexity: O(n) (best is O(1))
   def search(self, key: int) -> int:
     bucketIndex = self.hashingKey(key)
     bucketHead = self.array[bucketIndex]
@@ -40,6 +51,9 @@ class UnorderedMap:
 
     return -1
 
+  # search will remove the key from the hash map
+  # after determine the hashing index
+  # Time Complexity: O(n) (best is O(1))
   def remove(self, key:int) -> None:
     bucketIndex = self.hashingKey(key)
     bucketHead = self.array[bucketIndex]
@@ -92,7 +106,7 @@ def runningHashCollison():
   hashMap.insert(6, "Tingyun")
 
   hashMap.printDistribution()
-  
+
   print("Removing Tingyun from HashMap")
   hashMap.remove(6)
   print("Value of 35:", hashMap.search(17))
