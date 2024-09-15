@@ -1,4 +1,5 @@
 import random
+import sys
 
 # quickSort will following the three steps:
 # Step 1: Choose the pivot (first element of the array)
@@ -67,9 +68,6 @@ def printArray(array: list[int]):
     print("\n")
 
 def runningSort():
-  arr = generateArray(numberOfElements=10, isSort=False,sortIncreasing=False, isRepeatingElement= True)
-  print("Before sorting")
-  printArray(arr)
+  sys.setrecursionlimit(1000000)
+  arr = generateArray(numberOfElements=10000, isSort=True,sortIncreasing=False, isRepeatingElement= True)
   sortedArray = randomizedQuickSort(arr)
-  print("After sorting ")
-  printArray(sortedArray)
