@@ -23,6 +23,11 @@ def quickSort(array: list[int]) -> list[int]:
   # Step 3: Repeat the same operation for left side and right side
   return quickSort(leftArray) + [pivot] + quickSort(rightArray)
 
+# randomizedQuickSort will mostly do the same with quick sort; however,
+# it also increases the randomness in choosing the pivot to
+# reduce the likelihood of consistently picking a poor pivot.
+# Time complexity: O(n log n) (O(n^2) when the array is sorted either in descending or ascending)
+# Space complexity: O(log n) (O(n) when the array is sorted either in descending or ascending)
 def randomizedQuickSort(array: list[int]) -> list[int]:
   if len(array) <= 1:
     return array

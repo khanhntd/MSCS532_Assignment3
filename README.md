@@ -14,6 +14,7 @@ pip install -U memory_profiler
 ```
 
 ## Output
+# Profiler
 To run the sorting with corresponding profiler, we need to execute the the following commands:
 - **Memory profiler:**
 ```
@@ -27,4 +28,7 @@ python3 -m cProfile main.py
 ```
 ![CPU profiler](./cpuProfiler.png)
 
+# Algorithm
+- Quick Sort with Randomized Pivot Selection
 
+- Hashing with Chaining
